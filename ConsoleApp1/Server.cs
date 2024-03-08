@@ -61,7 +61,8 @@ namespace ConsoleApp1
             packetHandlers = new Dictionary<int, PacketHandler>()
             {
                 {(int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
-                {(int)ClientPackets.sendName, ServerHandle.receivedMessageTest }
+                {(int)ClientPackets.sendName, ServerHandle.receivedMessageTest },
+                {(int)ClientPackets.button, ServerHandle.ButtonClick }
             };
             Console.WriteLine("Initialized packets.");
         }

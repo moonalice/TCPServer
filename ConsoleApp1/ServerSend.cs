@@ -53,11 +53,22 @@ namespace ConsoleApp1
             using(Packet _packet = new Packet((int)ServerPackets.name))
             {
                 _packet.Write(_info + "                        ");
-                //ServerHandle.receivedMessageTest(_toClient, _packet);
+                //ServerHandle.receivMessageTest(_toClient, _packet);
 
                 SendTCPDataToAll(_packet);
             }
         }
+
+        public static void SendUserButtonClick(int _fromClient, string _info)   //데이터를 전달하는 함수 추가.
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.button))
+            {
+                _packet.Write(_info);
+
+                SendTCPDataToAll(_packet);      
+            }
+        }
+
         #endregion
     }
 }

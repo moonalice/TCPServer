@@ -27,13 +27,24 @@ namespace ConsoleApp1
             }
 
         }
+        
+        public static void receivedMessageTest(int _toClient, Packet _packet)
+        {
+            _info = _packet.ReadString();
+            Console.WriteLine($"\n{Server.clients[_toClient].tcp.socket.Client.RemoteEndPoint}에게 보냅니다..");
+            Console.WriteLine($"\nReceived: {_info}");
 
-        public static void receivedMessageTest(int _fromClient, Packet _packet)
+        }
+
+
+
+        public static void ButtonClick(int _fromClient, Packet _packet)     //클라이언트가 보낸 패킷 형태의 데이터를 받는다.
         {
             _info = _packet.ReadString();
             Console.WriteLine($"\nServer Info Name : {_info}");
 
-            ServerSend.SendUserInfoToAll(_fromClient, _info);
+            ServerSend.SendUserInfoToAll(_fromClient, "received data");     //데이터를 해석하고 ServerSend를 이용하여 다시 클라이언트에게 데이터를 받았다는 메세지 전달.
         }
     }
+
 }

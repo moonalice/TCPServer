@@ -9,6 +9,7 @@ namespace ConsoleApp1
     {
         welcome = 1,
         name,
+        button
     }
 
     /// <summary>Sent from client to server.</summary>
@@ -16,6 +17,7 @@ namespace ConsoleApp1
     {
         welcomeReceived = 1,
         sendName,
+        button
     }
 
     public class Packet : IDisposable
